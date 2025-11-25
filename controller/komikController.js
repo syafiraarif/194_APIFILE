@@ -69,6 +69,14 @@ async function deleteKomik(req, res) {
     }
 }
 
+module.exports = {
+    createKomik,
+    getAllKomik,
+    getKomikById,
+    updateKomik,
+    deleteKomik,
+};
+
 
 
 
