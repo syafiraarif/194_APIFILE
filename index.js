@@ -1,21 +1,20 @@
-const express = require('express');
+const express = require('express')
 const connectDatabase = require('./config/db');
-const apiRoute = require('./routes/api');
+// const apiRoute = require('./routes/api');
 
 const app = express();
 const PORT = 3000;
 
-async function connectDatabase() {
-  try {
-    await db.sequelize.authenticate();
-    console.log('✅ Database connected successfully');
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-    await db.sequelize.sync({ alter: true });
-    console.log('✅ Database synchronized');
-  } catch (err) {
-    console.error('❌ Database connection failed:', err.message);
-    process.exit(1);
-  }
+// app.use('/api/v1', apiRoute);
+
+async function startServer() {
+  await connectDatabase();
+  app.listen(PORT, () => {
+    console.log(`✅ Server running at http://localhost:${PORT}`);
+  });
 }
 
-module.exports = connectDatabase;
+startServer();
