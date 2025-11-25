@@ -1,0 +1,5 @@
+![Tampilan Create/POST](create.png)
+![Tampilan Read/GET Semua Data](getall.png)
+![Tampilan Read/GET Menggunakan ID](getDenganID.png)
+![Tampilan Update/PUT](Update.png)
+![Tampilan Delete/DELETE](Delete.png)
