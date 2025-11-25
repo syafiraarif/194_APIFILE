@@ -60,6 +60,17 @@ async function updateKomik(req, res) {
     }
 }
 
+async function deleteKomik(req, res) {
+    try {
+        const result = await komikService.deleteKomik(db, req.params.id);
+        res.json({ success: true, message: result.message });
+    } catch (error) {
+        res.status(400).json({ success: false, error: error.message });
+    }
+}
+
+
+
 
 
 
